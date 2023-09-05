@@ -7,7 +7,6 @@
 #ifndef FUNCIONES_H
 #define FUNCIONES_H
 
-#include "funciones.h"
 #include <iostream>
 
 class Funciones {
