@@ -17,3 +17,23 @@
 >  programa [17 15 7 10]
 > 
 > fail
+
+#### La retro sobre la tarea de Splay Tree, el error lo ponen en el find, pero creo que es un error del delete (igual esto no afecta por que solo pierdo un  punto). Ahora bien en la retro se coloca donde fallo mi codigo:
+
+```
+ add success
+ add success
+ add success
+ find success
+ find success
+ find success
+ find success
+ find success
+ find success
+ remove success
+ remove fail
+ remove success
+ remove success
+ remove success
+ remove success
+```
