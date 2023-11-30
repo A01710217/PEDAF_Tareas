@@ -78,8 +78,8 @@ Node<T>* Node<T>::remove(T val) {
 
 #### Metodo remove() de la clase SplayTree:
 
+```
 ...
-
 template <class T>
 void SplayTree<T>::remove(T val) {
 	if (root != 0) {
