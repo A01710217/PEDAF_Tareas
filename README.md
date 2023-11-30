@@ -1,8 +1,8 @@
 # PEDAF_Tareas.
 
-# Correcciones realizadas:
+## Correcciones realizadas:
 
-# 7_Arbol_Desplegado_Splay_Tree.
+## 7_Arbol_Desplegado_Splay_Tree.
 
 #### En esta tarea de splay tree, del archivo main.cpp, tengo "fail" en el caso 5 y 6, casos que consultan el metodo inorder():
 
