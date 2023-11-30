@@ -37,3 +37,7 @@
  remove success
  remove success
 ```
+
+#### Con esto dedusco que mi codigo tiene errores del remove, errores evidentes antes de hacer la entrega.
+
+### Corrección:
