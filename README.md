@@ -40,4 +40,70 @@
 
 #### Con esto dedusco que mi codigo tiene errores del remove, errores evidentes antes de hacer la entrega.
 
+### Metodos anteriores:
+
+#### Metodo remove() de la clase Node:
+```
+template <class T>
+Node<T>* Node<T>::remove(T val) {
+	if (val < value) {
+		if (left == nullptr)
+			return this;
+		left = left->remove(val);
+	} else if (val > value) {
+		if (right == nullptr)
+			return this;
+		right = right->remove(val);
+	} else {
+		if (left == nullptr) {
+			Node<T>* temp = right;
+			delete this;
+			return temp;
+		} else if (right == nullptr) {
+			Node<T>* temp = left;
+			delete this;
+			return temp;
+		}
+
+		Node<T>* temp = right;
+		while (temp->left != nullptr) {
+			temp = temp->left;
+		}
+		value = temp->value;
+		right = right->remove(temp->value);
+	}
+	return this;
+}
+```
+
+#### Metodo remove() de la clase SplayTree:
+
+...
+
+template <class T>
+void SplayTree<T>::remove(T val) {
+	if (root != 0) {
+		if (val == root->value) {
+			Node<T> *succ = root->succesor();
+			if (succ != 0) {
+				succ->left = root->left;
+				succ->right = root->right;
+				succ->parent = 0;
+				if(succ->left)
+					succ->left->parent = succ;
+				if(succ->right)
+					succ->right->parent = succ;
+			}
+			delete root;
+			root = succ;
+		} else {
+			Node<T>* p = root->remove(val);
+			root = root->splay(root,p);
+		}
+	}
+}
+
+...
+```
+
 ### Corrección:
