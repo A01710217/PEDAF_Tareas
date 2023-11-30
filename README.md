@@ -109,7 +109,7 @@ void SplayTree<T>::remove(T val) {
 ### Corrección:
 
 #### Realice una correccion en el remove() de la clase Node.
-#### En este codigo declaramos punteros auxiliares paara recorrer el arreglo, cosa que antes no hice, lo que provocaba que no devolviera los datos corretos.
+#### En este codigo declaramos punteros auxiliares para recorrer el árbol, cosa que antes no hice, lo que provocaba que no devolviera los datos corretos. Ademas se tendria que modificar la estructura del nodo para que pueda almacenar un puntero parent.
 ```
 template <class T>
 Node<T>* Node<T>::remove(T val) {
