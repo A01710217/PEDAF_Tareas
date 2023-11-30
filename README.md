@@ -107,3 +107,76 @@ void SplayTree<T>::remove(T val) {
 ```
 
 ### Corrección:
+
+#### Realice una correccion en el remove() de la clase Node.
+#### En este codigo declaramos punteros auxiliares paara recorrer el arreglo, cosa que antes no hice, lo que provocaba que no devolviera los datos corretos.
+```
+template <class T>
+Node<T>* Node<T>::remove(T val) {
+	Node<T> *succ, *old;
+
+	if (val < value) {
+		if (left != 0) {
+			if (left->value == val) {
+				old = left;
+				if (old->left != 0 && old->right != 0) {
+					succ = left->succesor();
+				
+					succ->left = old->left;
+					succ->right = old->right;
+					succ->parent = old->parent;
+					old->left = old->right = 0;
+				
+				} else if (old->right != 0) {
+					old->right->parent = old->parent;
+					old->parent->left = old->right;
+					old->right = 0;
+					return this;
+				} else if (old->left != 0) {
+					old->left->parent = old->parent;
+					old->parent->left = old->left;
+					old->left = 0;
+					return this;
+				} else {
+					old->parent->left = 0;
+				}
+				return this;
+			} else {
+				return left->remove(val);
+			}
+		}
+	} else if (val > value) {
+		if (right != 0) {
+			if (right->value == val) {
+				old = right;
+				if (old->left != 0 && old->right != 0) {
+					succ = right->succesor();
+					if (succ != 0) {
+						succ->left = old->left;
+						succ->right = old->right;
+						succ->parent = old->parent;
+						old->left = old->right = 0;
+					}
+				} else if (old->right != 0) {
+					old->right->parent = old->parent;
+					old->parent->right = old->right;
+					old->right = 0;
+					return this;
+				} else if (old->left != 0) {
+					old->left->parent = old->parent;
+					old->parent->right = old->left;
+					old->left = 0;
+					return this;
+				} else {
+					old->parent->right = 0;
+					return this;
+				}
+				return this;
+			} else {
+				return right->remove(val);
+			}
+		}
+	}
+	return this;
+}
+```
